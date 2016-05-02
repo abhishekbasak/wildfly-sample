@@ -1,0 +1,56 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+  	<parent>
+    	<groupId>com.basak</groupId>
+    	<artifactId>wildfly-sample</artifactId>
+    	<version>0.0.1-SNAPSHOT</version>
+  	</parent>
+  	<artifactId>helloworld</artifactId>
+  	<packaging>war</packaging>
+  	<name>helloworld</name>
+  	
+  	<dependencyManagement>
+  		<dependencies>
+  			<dependency>
+                <groupId>org.jboss.spec</groupId>
+                <artifactId>jboss-javaee-7.0</artifactId>
+                <version>${version.jboss.spec.javaee.7.0}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+  		</dependencies>
+  	</dependencyManagement>
+  		
+  	<dependencies>
+  		<dependency>
+            <groupId>javax.enterprise</groupId>
+            <artifactId>cdi-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.jboss.spec.javax.servlet</groupId>
+            <artifactId>jboss-servlet-api_3.1_spec</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        
+  	</dependencies>
+  	
+  	<build>
+  		<finalName>${project.artifactId}</finalName>
+  		<plugins>
+  			 <plugin>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>${version.war.plugin}</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+  			</plugin>
+  			<plugin>
+                <groupId>org.wildfly.plugins</groupId>
+                <artifactId>wildfly-maven-plugin</artifactId>
+                <version>${version.wildfly.maven.plugin}</version>
+            </plugin>
+  		</plugins>
+  	</build>
+</project>
