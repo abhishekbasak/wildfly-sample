@@ -55,10 +55,11 @@
             </activation>
   			<modules>
   				<module>helloworld</module>
+  				<module>helloworld-html5</module>
   			</modules>
   		</profile>
   	</profiles>
   	<modules>
-  		<module>helloworld</module>
+  		<module>helloworld-html5</module>
   	</modules>
 </project>
